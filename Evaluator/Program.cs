@@ -1,4 +1,4 @@
-﻿namespace Evaluator
+namespace Evaluator
 {
     public static class Program
     {
@@ -11,7 +11,7 @@
             evaluator.Add((val, additionalVals) => val + 1 + additionalVals[0], 20);
             evaluator.Add((val, additionalVals) => val - additionalVals[0] - additionalVals[1], 5, 3);
 
-            Console.WriteLine(evaluator.Evaluate(8));
+            Console.WriteLine(evaluator.HasValue(evaluator.Evaluate(8)));
         }
     }
 }
