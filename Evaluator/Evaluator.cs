@@ -1,4 +1,4 @@
-﻿namespace Evaluator
+namespace Evaluator
 {
     using System;
     using System.Collections.Generic;
@@ -19,17 +19,34 @@
         {
             try
             {
-                var _value = seed;
-                foreach (var func in _funcs)
+                if (seed != null)
                 {
-                    _value = func.Key(_value, func.Value);
+                    var _value = seed;
+                    foreach (var func in _funcs)
+                    {
+                        _value = func.Key(_value, func.Value);
+                    }
+                    return _value;
                 }
-                return _value;
+
+                return seed;
             }
             catch (Exception ex)
             {
                 Exception exception = ex;
                 throw exception;
+            }
+        }
+
+        public string? HasValue(T response)
+        {
+            if (response != null)
+            {
+                return response.ToString();
+            }
+            else
+            {
+                return "Input value is null!";
             }
         }
     }
