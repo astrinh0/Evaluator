@@ -29,6 +29,24 @@ namespace Evaluator.Tests
         }
 
         [Fact]
+        public void Evaluator_Evaluate_Success_ReturnNull()
+        {
+            //Arrange
+
+            var evaluator = new Evaluator<int?>();
+
+            var expectedResult = "Input value is null!";
+
+            //Act
+
+            var result = evaluator.HasValue(evaluator.Evaluate(null));
+
+            //Assert
+
+            Assert.Equal(expectedResult, result);
+        }
+
+        [Fact]
         public void Evaluator_Evaluate_Success_ReturnObject()
         {
             //Arrange
